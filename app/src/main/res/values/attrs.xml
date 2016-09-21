@@ -1,0 +1,23 @@
+<resources>
+
+    <declare-styleable name="JBanner">
+        <!--页数最大上限，默认5-->
+        <attr name="pagerLimit" format="integer" />
+        <!--自动播放，默认true-->
+        <attr name="autoPlay" format="boolean" />
+        <!--轮播时间间隔，默认5s,三挡3s，5s，10s-->
+        <attr name="playSpeed">
+            <enum name="fast" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="slow" value="2" />
+        </attr>
+        <!--翻页速度，默认1000ms,三挡500ms，1000ms,1500ms-->
+        <attr name="switchSpeed">
+            <enum name="fast" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="slow" value="2" />
+        </attr>
+        <!--翻页动画效果，默认为fadeIn，关闭传入字符串null-->
+        <attr name="transformer" format="string" />
+    </declare-styleable>
+</resources>
