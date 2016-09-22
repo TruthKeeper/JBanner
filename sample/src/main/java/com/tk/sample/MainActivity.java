@@ -9,8 +9,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.tk.sample.indicator.SampleIndicatorView;
+import com.tk.jbanner.Indicator;
 import com.tk.jbanner.JBanner;
+import com.tk.sample.indicator.SampleIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,13 +41,13 @@ public class MainActivity extends AppCompatActivity implements JBanner.OnJBanner
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        jbanner.setIndicator(sampleIndicatorView);
-//        jbanner.setIndicator(new Indicator() {
-//            @Override
-//            public void onScroll(int position, float offsetX) {
-//                textIndicator.setText(position + "\t\t" + offsetX);
-//            }
-//        });
+        jbanner.addIndicator(sampleIndicatorView);
+        jbanner.addIndicator(new Indicator() {
+            @Override
+            public void onScroll(int position, float offsetX) {
+                textIndicator.setText("第" + position + "\t\t偏移" + offsetX);
+            }
+        });
         jbanner.setmOnJBannerListener(this);
     }
 

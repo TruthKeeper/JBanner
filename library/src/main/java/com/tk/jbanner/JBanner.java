@@ -39,7 +39,7 @@ public class JBanner extends RelativeLayout {
     //内部ViewPager
     private ViewPager mViewPager;
     //指示器
-    private Indicator mIndicator;
+    private List<Indicator> mIndicatorList;
     //pagetransformer，动态切换view属性不一定能重置，会有bug
     private ViewPager.PageTransformer mTransformer;
     //adapter包装类
@@ -84,8 +84,12 @@ public class JBanner extends RelativeLayout {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (mIndicator != null) {
-                    mIndicator.onScroll(JUtils.findRealPosition(mList.size(), position), positionOffset);
+                if (mIndicatorList != null) {
+                    for (Indicator i : mIndicatorList) {
+                        if (i != null) {
+                            i.onScroll(JUtils.findRealPosition(mList.size(), position), positionOffset);
+                        }
+                    }
                 }
             }
 
@@ -221,15 +225,43 @@ public class JBanner extends RelativeLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mHandler.removeCallbacksAndMessages(null);
+        mIndicatorList.clear();
     }
 
     /**
-     * 设置指示器
+     * 添加指示器
      *
-     * @param mIndicator
+     * @param indicator
      */
-    public void setIndicator(Indicator mIndicator) {
-        this.mIndicator = mIndicator;
+    public void addIndicator(Indicator indicator) {
+        if (mIndicatorList == null) {
+            mIndicatorList = new ArrayList<Indicator>();
+        }
+        mIndicatorList.add(indicator);
+    }
+
+    /**
+     * 清除某个指示器
+     *
+     * @param indicator
+     * @return
+     */
+    public boolean clearIndicator(Indicator indicator) {
+        if (mIndicatorList != null) {
+            return mIndicatorList.remove(indicator);
+        }
+        return false;
+    }
+
+    /**
+     * 清除所有指示器
+     *
+     * @return
+     */
+    public void clearAllIndicator() {
+        if (mIndicatorList != null) {
+            mIndicatorList.clear();
+        }
     }
 
     /**
