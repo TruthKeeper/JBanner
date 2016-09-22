@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JBanner</string>
+    <string name="page_transformer_box">com.tk.sample.transformer.BoxPageTransformer</string>
+</resources>
