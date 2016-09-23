@@ -11,7 +11,7 @@
 6.解耦，外接Indicator（可多个），传入自定义view或者其他接口实现类即可<br><br>
 7.将内部adapter的imageview和点击事件暴露出来，方便集成加载框架
 
-###PS：Sample 集成了[ButterKnife](https://github.com/JakeWharton/butterknife)和[Glide](https://github.com/bumptech/glide)，详细内容请移步下载[Smaple](https://github.com/TruthKeeper/JBanner/blob/master/sample_1.1.apk)查看
+###PS：Sample 集成了[ButterKnife](https://github.com/JakeWharton/butterknife)和[Glide](https://github.com/bumptech/glide)，详细内容请移步下载[Smaple](https://github.com/TruthKeeper/JBanner/blob/master/sample_1.2.apk)查看
 ###如何使用
 ```xml
 dependencies {
