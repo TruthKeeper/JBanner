@@ -16,7 +16,7 @@
             app:autoPlay="false"
             app:playTime="3000"
             app:switchTime="1000"
-            app:transformer="@string/page_transformer_box">
+         >
 
             <com.tk.sample.indicator.SampleIndicatorView
                 android:id="@+id/indicator_view"

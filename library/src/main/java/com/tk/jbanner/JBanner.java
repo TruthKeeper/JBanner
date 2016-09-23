@@ -225,7 +225,9 @@ public class JBanner extends RelativeLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mHandler.removeCallbacksAndMessages(null);
-        mIndicatorList.clear();
+        if (mIndicatorList != null) {
+            mIndicatorList.clear();
+        }
     }
 
     /**
@@ -271,6 +273,9 @@ public class JBanner extends RelativeLayout {
      */
     public void setmOnJBannerListener(OnJBannerListener mOnJBannerListener) {
         this.mOnJBannerListener = mOnJBannerListener;
+        if (jAdapter != null) {
+            jAdapter.setmOnJBannerListener(this.mOnJBannerListener);
+        }
     }
 
     public interface OnJBannerListener {
