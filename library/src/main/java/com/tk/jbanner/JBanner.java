@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -50,13 +51,15 @@ public class JBanner extends RelativeLayout {
     private boolean mAutoScroll = true;
     //当前索引位置
     private int mCurrentPositon;
+    //触摸锁
+    private boolean touchLock;
     //点击监听回调
     private OnJBannerListener mOnJBannerListener;
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if (mAutoScroll) {
+            if (!touchLock && mAutoScroll) {
                 mViewPager.setCurrentItem(++mCurrentPositon);
                 mHandler.sendEmptyMessageDelayed(0, mPlayTime);
             }
@@ -68,7 +71,11 @@ public class JBanner extends RelativeLayout {
     }
 
     public JBanner(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public JBanner(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
@@ -220,6 +227,25 @@ public class JBanner extends RelativeLayout {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
+    /**
+     * 触摸时暂停播放
+     *
+     * @param ev
+     * @return
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (mAutoScroll) {
+            if (ev.getAction() == MotionEvent.ACTION_DOWN && !touchLock) {
+                touchLock = true;
+                mHandler.removeCallbacksAndMessages(null);
+            } else if (ev.getAction() == MotionEvent.ACTION_UP && touchLock) {
+                touchLock = false;
+                mHandler.sendEmptyMessageDelayed(0, mPlayTime);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 
     @Override
     protected void onDetachedFromWindow() {
