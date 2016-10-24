@@ -10,13 +10,14 @@
 5.XML自定义PageTransformer，自带FadIn（显式），Fold（折叠）<br><br>
 6.解耦，外接Indicator（可多个），传入自定义view或者其他接口实现类即可<br><br>
 7.将内部adapter的imageview和点击事件暴露出来，方便集成加载框架
+8.触摸时暂停轮播
 
-###PS：Sample 集成了[ButterKnife](https://github.com/JakeWharton/butterknife)和[Glide](https://github.com/bumptech/glide)，详细内容请移步下载[Smaple](https://github.com/TruthKeeper/JBanner/blob/master/sample_1.2.apk)查看
+###PS：Sample 集成了[ButterKnife](https://github.com/JakeWharton/butterknife)和[Glide](https://github.com/bumptech/glide)
 ###如何使用
 ```xml
 dependencies {
 
-    compile 'com.tk.jbanner:library:1.2.1'
+    compile 'com.tk.jbanner:library:1.3'
     
 }
 ```
