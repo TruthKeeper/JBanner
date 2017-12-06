@@ -5,13 +5,14 @@ import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
 /**
- * Created by TK on 2016/9/21.
- * 自定义滑动时间
+ * <pre>
+ *      author : TK
+ *      time : 2017/12/4
+ *      desc : 自定义滑动时间
+ * </pre>
  */
-
 public class JScroller extends Scroller {
-
-    private int mDuring = JBanner.DEFAULT_SWITCH_TIME;
+    private int mDuring = JBanner.DEFAULT_FADE_TIME;
     private static final Interpolator sInterpolator = new Interpolator() {
         public float getInterpolation(float t) {
             t -= 1.0f;
@@ -37,12 +38,11 @@ public class JScroller extends Scroller {
         super.startScroll(startX, startY, dx, dy, mDuring);
     }
 
-    public int getmDuring() {
+    public int getDuring() {
         return mDuring;
     }
 
-    public void setmDuring(int mDuring) {
-        this.mDuring = mDuring;
+    public void setDuring(int during) {
+        this.mDuring = during;
     }
-
 }

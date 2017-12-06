@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.tk.jbanner.utils.JUtils;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,13 +18,13 @@ import java.util.List;
 
 public class JAdapter extends PagerAdapter {
     private Context mContext;
-    private List<? extends Object> mList = new ArrayList<>();
+    private List<?> mList = new ArrayList<>();
     private LinkedList<ImageView> mCacheList = new LinkedList<ImageView>();
     private JBanner.OnJBannerListener mOnJBannerListener;
 
-    public JAdapter(Context mContext, List<? extends Object> mList) {
-        this.mContext = mContext;
-        this.mList = mList;
+    public JAdapter(Context context, List<?> list) {
+        this.mContext = context;
+        this.mList = list;
     }
 
     @Override
@@ -49,7 +48,7 @@ public class JAdapter extends PagerAdapter {
 //            //从缓存集合中取
             imageview = mCacheList.removeFirst();
         }
-        final int realPosition = JUtils.findRealPosition(mList.size(), position);
+        final int realPosition = JBanner.getRealIndex(mList.size(), position);
         if (mOnJBannerListener != null) {
             mOnJBannerListener.onLoad(imageview, realPosition);
             imageview.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +68,7 @@ public class JAdapter extends PagerAdapter {
         mCacheList.add((ImageView) object);
     }
 
-    public void setmOnJBannerListener(JBanner.OnJBannerListener mOnJBannerListener) {
+    public void setOnJBannerListener(JBanner.OnJBannerListener mOnJBannerListener) {
         this.mOnJBannerListener = mOnJBannerListener;
     }
 }

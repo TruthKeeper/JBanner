@@ -14,7 +14,7 @@ import com.tk.jbanner.Indicator;
 
 public class SampleIndicatorView extends View implements Indicator {
     public static final int PADDING = 30;
-    public static final int RADIUS = 15;
+    public static final int RADIUS = 12;
     private int size;
     private Paint paint = new Paint();
     private boolean initSuccess;

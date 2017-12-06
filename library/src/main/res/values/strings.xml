@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">Library</string>
-    <string name="page_transformer_fadeIn">com.tk.jbanner.transformer.FadeInTransformer</string>
-    <string name="page_transformer_fold">com.tk.jbanner.transformer.FoldTransformer</string>
+    <string name="app_name">JBanner</string>
 </resources>

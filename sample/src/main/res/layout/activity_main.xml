@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,14 +10,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.tk.jbanner.JBanner xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.tk.jbanner.JBanner
             android:id="@+id/jbanner"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            app:autoPlay="false"
-            app:playTime="3000"
-            app:switchTime="1000"
-         >
+            android:layout_height="220dp"
+            app:intervalTime="3000">
 
             <com.tk.sample.indicator.SampleIndicatorView
                 android:id="@+id/indicator_view"
@@ -35,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <Button
@@ -42,21 +41,21 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="开始(立即)" />
+                android:text="开始轮播(立刻)" />
 
             <Button
                 android:id="@+id/start"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="开始" />
+                android:text="开始轮播" />
 
             <Button
-                android:id="@+id/pause"
+                android:id="@+id/stop"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="暂停" />
+                android:text="停止轮播" />
         </LinearLayout>
 
         <LinearLayout
@@ -70,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="list size=1"
+                android:text="1条数据"
                 android:textAllCaps="false" />
 
             <Button
@@ -78,7 +77,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="list size=3"
+                android:text="3条数据"
                 android:textAllCaps="false" />
 
             <Button
@@ -86,13 +85,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="list size=5"
+                android:text="5条数据"
                 android:textAllCaps="false" />
         </LinearLayout>
 
+        <CheckBox
+            android:id="@+id/cb_disable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="禁止触摸" />
 
-        <android.support.v4.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="600dp" />
     </LinearLayout>
 </ScrollView>
