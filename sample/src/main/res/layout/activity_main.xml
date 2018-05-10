@@ -20,7 +20,7 @@
                 android:id="@+id/indicator_view"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_alignParentBottom="true" />
+                android:layout_gravity="bottom" />
         </com.tk.jbanner.JBanner>
 
         <TextView

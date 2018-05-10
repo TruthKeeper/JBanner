@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,7 +28,7 @@ import java.util.List;
  *
  * </pre>
  */
-public class JBanner extends RelativeLayout implements JTimer.JTimerListener {
+public class JBanner extends FrameLayout implements JTimer.JTimerListener {
     /**
      * 最大限制页数
      */
